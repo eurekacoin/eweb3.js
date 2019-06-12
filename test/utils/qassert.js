@@ -7,6 +7,6 @@ module.exports = class QAssert {
   static isEurekaCoinAddress(address) {
     assert.isDefined(address);
     assert.equal(_.size(address), 34);
-    assert.isTrue(address.startsWith('q') || address.startsWith('Q'));
+    assert.isTrue(address.startsWith('e') || address.startsWith('E'));
   }
 };

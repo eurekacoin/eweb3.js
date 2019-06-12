@@ -1,23 +1,23 @@
-[![Build Status](https://travis-ci.org/bodhiproject/qweb3.js.svg?branch=master)](https://travis-ci.org/bodhiproject/qweb3.js)
+[![Build Status](https://travis-ci.org/bodhiproject/eweb3.js.svg?branch=master)](https://travis-ci.org/bodhiproject/eweb3.js)
 
-# Qweb3.js - Web3.js for EurekaCoin
+# Eweb3.js - Web3.js for EurekaCoin
 
-Qweb3 is a library for dApps to interract with the EurekaCoin blockchain. Qweb3 communicates to a EurekaCoin node via the provider provided.
+Eweb3 is a library for dApps to interract with the EurekaCoin blockchain. Eweb3 communicates to a EurekaCoin node via the provider provided.
 
-https://www.npmjs.com/package/qweb3
+https://www.npmjs.com/package/eweb3
 
 ## Get Started
 Run the following in your project folder:
 
-	npm install qweb3 --save
+	npm install eweb3 --save
 
 ## Web Dapp Usage
-This is example is meant for web dapps who would like to use Qweb3's convenience methods with Qrypto's RPC provider. Qrypto is a EurekaCoin wallet [Chrome extension](https://chrome.google.com/webstore/detail/qrypto/hdmjdgjbehedbnjmljikggbmmbnbmlnd). More details about Qrypto [here](https://github.com/bodhiproject/qrypto).
+This is example is meant for web dapps who would like to use Eweb3's convenience methods with Qrypto's RPC provider. Qrypto is a EurekaCoin wallet [Chrome extension](https://chrome.google.com/webstore/detail/qrypto/hdmjdgjbehedbnjmljikggbmmbnbmlnd). More details about Qrypto [here](https://github.com/bodhiproject/qrypto).
 
-### 1. Construct Qweb3 instance
-If you have Qrypyto installed, you will have a `window.qrypto` object injected in your browser tab. Pass that into Qweb3 as a parameter to set the provider.
+### 1. Construct Eweb3 instance
+If you have Qrypyto installed, you will have a `window.qrypto` object injected in your browser tab. Pass that into Eweb3 as a parameter to set the provider.
 ```
-const qweb3 = new Qweb3(window.qrypto.rpcProvider);
+const eweb3 = new Eweb3(window.qrypto.rpcProvider);
 ```
 
 ### 2. Construct Contract instance
@@ -26,8 +26,8 @@ The Contract class is meant for executing `sendtocontract` or `callcontract` at 
 const contractAddress = 'f7b958eac2bdaca0f225b86d162f263441d23c19';
 const contractAbi = [{"constant":false,"inputs":[{"name":"_eventAddress","type":"address"},{"name":"_eventName","type":"bytes32[10]"},{"name":"_eventResultNames","type":"bytes32[10]"},{"name":"_numOfResults","type":"uint8"},{"name":"_lastResultIndex","type":"uint8"},{"name":"_arbitrationEndBlock","type":"uint256"},{"name":"_consensusThreshold","type":"uint256"}],"name":"createDecentralizedOracle","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_eventAddress","type":"address"},{"name":"_eventName","type":"bytes32[10]"},{"name":"_eventResultNames","type":"bytes32[10]"},{"name":"_numOfResults","type":"uint8"},{"name":"_lastResultIndex","type":"uint8"},{"name":"_arbitrationEndBlock","type":"uint256"},{"name":"_consensusThreshold","type":"uint256"}],"name":"doesDecentralizedOracleExist","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_oracle","type":"address"},{"name":"_eventAddress","type":"address"},{"name":"_eventName","type":"bytes32[10]"},{"name":"_eventResultNames","type":"bytes32[10]"},{"name":"_numOfResults","type":"uint8"},{"name":"_bettingEndBlock","type":"uint256"},{"name":"_resultSettingEndBlock","type":"uint256"},{"name":"_consensusThreshold","type":"uint256"}],"name":"createCentralizedOracle","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_oracle","type":"address"},{"name":"_eventAddress","type":"address"},{"name":"_eventName","type":"bytes32[10]"},{"name":"_eventResultNames","type":"bytes32[10]"},{"name":"_numOfResults","type":"uint8"},{"name":"_bettingEndBlock","type":"uint256"},{"name":"_resultSettingEndBlock","type":"uint256"},{"name":"_consensusThreshold","type":"uint256"}],"name":"doesCentralizedOracleExist","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"oracles","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[{"name":"_addressManager","type":"address"}],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_contractAddress","type":"address"},{"indexed":true,"name":"_oracle","type":"address"},{"indexed":true,"name":"_eventAddress","type":"address"},{"indexed":false,"name":"_name","type":"bytes32[10]"},{"indexed":false,"name":"_resultNames","type":"bytes32[10]"},{"indexed":false,"name":"_numOfResults","type":"uint8"},{"indexed":false,"name":"_bettingEndBlock","type":"uint256"},{"indexed":false,"name":"_resultSettingEndBlock","type":"uint256"},{"indexed":false,"name":"_consensusThreshold","type":"uint256"}],"name":"CentralizedOracleCreated","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_contractAddress","type":"address"},{"indexed":true,"name":"_eventAddress","type":"address"},{"indexed":false,"name":"_name","type":"bytes32[10]"},{"indexed":false,"name":"_resultNames","type":"bytes32[10]"},{"indexed":false,"name":"_numOfResults","type":"uint8"},{"indexed":false,"name":"_lastResultIndex","type":"uint8"},{"indexed":false,"name":"_arbitrationEndBlock","type":"uint256"},{"indexed":false,"name":"_consensusThreshold","type":"uint256"}],"name":"DecentralizedOracleCreated","type":"event"}];
 
-// Create a new Contract instance and use the same provider as qweb3
-const contract = qweb3.Contract(contractAddress, contractAbi);
+// Create a new Contract instance and use the same provider as eweb3
+const contract = eweb3.Contract(contractAddress, contractAbi);
 ```
 
 ### 3. Get Logged In Qrypto Account
@@ -67,36 +67,36 @@ const tx = await contract.send('setResult', {
 // tx = txid of the transaction
 ```
 
-## Qweb3Provider
-The provider is the link between Qweb3 and the blockchain. A compatible Qweb3 Provider adheres to the following interface:
+## Eweb3Provider
+The provider is the link between Eweb3 and the blockchain. A compatible Eweb3 Provider adheres to the following interface:
 ```
-interface Qweb3Provider: {
+interface Eweb3Provider: {
   rawCall: (method: string, args: any[]) => Promise; // returns the result of the request
 }
 ```
 
-## Qweb3
-Instantiate a new instance of `Qweb3`: 
+## Eweb3
+Instantiate a new instance of `Eweb3`: 
 ```
-const { Qweb3 } = require('qweb3');
+const { Eweb3 } = require('eweb3');
 
-// Instantiate Qweb3 with HttpProvider
+// Instantiate Eweb3 with HttpProvider
 // Pass in the URL of your EurekaCoin node RPC port with auth credentials.
 // Default EurekaCoin RPC ports: testnet=13889 mainnet=3889
-const qweb3 = new Qweb3('http://bodhi:bodhi@localhost:13889');
+const eweb3 = new Eweb3('http://bodhi:bodhi@localhost:13889');
 
-// Instantiate Qweb3 with QryptoRPCProvider
+// Instantiate Eweb3 with QryptoRPCProvider
 // QryptoRPCProvider is a provider for the Qrypto Wallet Chrome Extension.
 // Please note QryptoRPCProvider only allows the rawCall() method to be used.
 // It is specifically used for `sendtocontract` and `callcontract` only.
-const qweb3 = new Qweb3(window.qrypto.rpcProvider);
+const eweb3 = new Eweb3(window.qrypto.rpcProvider);
 ```
 
 ### isConnected()
 Checks if you are connected properly to the local eurekacoin node.
 ```
 async function isConnected() {
-  return await qweb3.isConnected();
+  return await eweb3.isConnected();
 }
 ```
 
@@ -104,7 +104,7 @@ async function isConnected() {
 Converts a EurekaCoin address to hex format.
 ```
 async function getHexAddress() {
-  return await qweb3.getHexAddress('qKjn4fStBaAtwGiwueJf9qFxgpbAvf1xAy');
+  return await eweb3.getHexAddress('qKjn4fStBaAtwGiwueJf9qFxgpbAvf1xAy');
 }
 ```
 
@@ -112,7 +112,7 @@ async function getHexAddress() {
 Converts a hex address to EurekaCoin format.
 ```
 async function fromHexAddress() {
-  return await qweb3.fromHexAddress('17e7888aa7412a735f336d2f6d784caefabb6fa3');
+  return await eweb3.fromHexAddress('17e7888aa7412a735f336d2f6d784caefabb6fa3');
 }
 ```
 
@@ -120,7 +120,7 @@ async function fromHexAddress() {
 Gets the current block height of your local EurekaCoin node.
 ```
 async function getBlockCount() {
-  return await qweb3.getBlockCount();
+  return await eweb3.getBlockCount();
 }
 ```
 
@@ -132,7 +132,7 @@ async function getTransaction(args) {
     transactionId, // string
   } = args;
 
-  return await qweb3.getTransactionReceipt(transactionId);
+  return await eweb3.getTransactionReceipt(transactionId);
 }
 ```
 
@@ -144,7 +144,7 @@ async function getTransactionReceipt(args) {
     transactionId, // string
   } = args;
 
-  return await qweb3.getTransactionReceipt(transactionId);
+  return await eweb3.getTransactionReceipt(transactionId);
 }
 ```
 
@@ -152,7 +152,7 @@ async function getTransactionReceipt(args) {
 Gets the unspent outputs that can be used.
 ```
 async function listUnspent() {
-  return await qweb3.listUnspent();
+  return await eweb3.listUnspent();
 }
 ```
 
@@ -194,16 +194,16 @@ async function(args) {
   }
 
   // removeHexPrefix = true removes the '0x' hex prefix from all hex values
-  return await qweb3.searchLogs(fromBlock, toBlock, addresses, topics, contractMetadata, true);
+  return await eweb3.searchLogs(fromBlock, toBlock, addresses, topics, contractMetadata, true);
 }
 ```
 
 ## Contract.js
 Instantiate a new instance of `Contract`: 
 ```
-const { Qweb3 } = require('qweb3');
+const { Eweb3 } = require('eweb3');
 
-const qweb3 = new Qweb3('http://bodhi:bodhi@localhost:13889');
+const eweb3 = new Eweb3('http://bodhi:bodhi@localhost:13889');
 
 // contractAddress = The address of your contract deployed on the blockchain
 const contractAddress = 'f7b958eac2bdaca0f225b86d162f263441d23c19';
@@ -211,8 +211,8 @@ const contractAddress = 'f7b958eac2bdaca0f225b86d162f263441d23c19';
 // contractAbi = The ABI of the contract
 const contractAbi = [{"constant":false,"inputs":[{"name":"_eventAddress","type":"address"},{"name":"_eventName","type":"bytes32[10]"},{"name":"_eventResultNames","type":"bytes32[10]"},{"name":"_numOfResults","type":"uint8"},{"name":"_lastResultIndex","type":"uint8"},{"name":"_arbitrationEndBlock","type":"uint256"},{"name":"_consensusThreshold","type":"uint256"}],"name":"createDecentralizedOracle","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_eventAddress","type":"address"},{"name":"_eventName","type":"bytes32[10]"},{"name":"_eventResultNames","type":"bytes32[10]"},{"name":"_numOfResults","type":"uint8"},{"name":"_lastResultIndex","type":"uint8"},{"name":"_arbitrationEndBlock","type":"uint256"},{"name":"_consensusThreshold","type":"uint256"}],"name":"doesDecentralizedOracleExist","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_oracle","type":"address"},{"name":"_eventAddress","type":"address"},{"name":"_eventName","type":"bytes32[10]"},{"name":"_eventResultNames","type":"bytes32[10]"},{"name":"_numOfResults","type":"uint8"},{"name":"_bettingEndBlock","type":"uint256"},{"name":"_resultSettingEndBlock","type":"uint256"},{"name":"_consensusThreshold","type":"uint256"}],"name":"createCentralizedOracle","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_oracle","type":"address"},{"name":"_eventAddress","type":"address"},{"name":"_eventName","type":"bytes32[10]"},{"name":"_eventResultNames","type":"bytes32[10]"},{"name":"_numOfResults","type":"uint8"},{"name":"_bettingEndBlock","type":"uint256"},{"name":"_resultSettingEndBlock","type":"uint256"},{"name":"_consensusThreshold","type":"uint256"}],"name":"doesCentralizedOracleExist","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"oracles","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[{"name":"_addressManager","type":"address"}],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_contractAddress","type":"address"},{"indexed":true,"name":"_oracle","type":"address"},{"indexed":true,"name":"_eventAddress","type":"address"},{"indexed":false,"name":"_name","type":"bytes32[10]"},{"indexed":false,"name":"_resultNames","type":"bytes32[10]"},{"indexed":false,"name":"_numOfResults","type":"uint8"},{"indexed":false,"name":"_bettingEndBlock","type":"uint256"},{"indexed":false,"name":"_resultSettingEndBlock","type":"uint256"},{"indexed":false,"name":"_consensusThreshold","type":"uint256"}],"name":"CentralizedOracleCreated","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_contractAddress","type":"address"},{"indexed":true,"name":"_eventAddress","type":"address"},{"indexed":false,"name":"_name","type":"bytes32[10]"},{"indexed":false,"name":"_resultNames","type":"bytes32[10]"},{"indexed":false,"name":"_numOfResults","type":"uint8"},{"indexed":false,"name":"_lastResultIndex","type":"uint8"},{"indexed":false,"name":"_arbitrationEndBlock","type":"uint256"},{"indexed":false,"name":"_consensusThreshold","type":"uint256"}],"name":"DecentralizedOracleCreated","type":"event"}];
 
-// Create a Contract instance from the Qweb3 instance
-const contract = qweb3.Contract(contractAddress, contractAbi);
+// Create a Contract instance from the Eweb3 instance
+const contract = eweb3.Contract(contractAddress, contractAbi);
 ```
 
 ### call(methodName, params)
@@ -250,48 +250,48 @@ async function exampleSend(args) {
 ```
 
 ## Encoder
-`Encoder` static functions are exposed in Qweb3 instances.
+`Encoder` static functions are exposed in Eweb3 instances.
 ```
-const { Qweb3 } = require('qweb3');
+const { Eweb3 } = require('eweb3');
 
-const qweb3 = new Qweb3('http://bodhi:bodhi@localhost:13889');
-qweb3.encoder.objToHash(abiObj, isFunction);
-qweb3.encoder.addressToHex(address);
-qweb3.encoder.boolToHex(value);
-qweb3.encoder.intToHex(num);
-qweb3.encoder.uintToHex(num);
-qweb3.encoder.stringToHex(string, maxCharLen);
-qweb3.encoder.stringArrayToHex(strArray, numOfItems);
-qweb3.encoder.padHexString(hexStr);
-qweb3.encoder.constructData(abi, methodName, args);
+const eweb3 = new Eweb3('http://bodhi:bodhi@localhost:13889');
+eweb3.encoder.objToHash(abiObj, isFunction);
+eweb3.encoder.addressToHex(address);
+eweb3.encoder.boolToHex(value);
+eweb3.encoder.intToHex(num);
+eweb3.encoder.uintToHex(num);
+eweb3.encoder.stringToHex(string, maxCharLen);
+eweb3.encoder.stringArrayToHex(strArray, numOfItems);
+eweb3.encoder.padHexString(hexStr);
+eweb3.encoder.constructData(abi, methodName, args);
 ```
 
 ## Decoder
-`Decoder` static functions are exposed in Qweb3 instances.
+`Decoder` static functions are exposed in Eweb3 instances.
 ```
-const { Qweb3 } = require('qweb3');
+const { Eweb3 } = require('eweb3');
 
-const qweb3 = new Qweb3('http://bodhi:bodhi@localhost:13889');
-qweb3.decoder.toEurekaCoinAddress(hexAddress, isMainnet);
-qweb3.decoder.removeHexPrefix(value);
-qweb3.decoder.decodeSearchLog(rawOutput, contractMetadata, removeHexPrefix);
-qweb3.decoder.decodeCall(rawOutput, contractABI, methodName, removeHexPrefix);
+const eweb3 = new Eweb3('http://bodhi:bodhi@localhost:13889');
+eweb3.decoder.toEurekaCoinAddress(hexAddress, isMainnet);
+eweb3.decoder.removeHexPrefix(value);
+eweb3.decoder.decodeSearchLog(rawOutput, contractMetadata, removeHexPrefix);
+eweb3.decoder.decodeCall(rawOutput, contractABI, methodName, removeHexPrefix);
 ```
 
 ## Utils
-`Utils` static functions are exposed in Qweb3 instances.
+`Utils` static functions are exposed in Eweb3 instances.
 ```
-const { Qweb3 } = require('qweb3');
+const { Eweb3 } = require('eweb3');
 
-const qweb3 = new Qweb3('http://bodhi:bodhi@localhost:13889');
-qweb3.utils.paramsCheck(methodName, params, required, validators);
-qweb3.utils.appendHexPrefix(value);
-qweb3.utils.trimHexPrefix(str);
-qweb3.utils.chunkString(str, length);
-qweb3.utils.toUtf8(hex);
-qweb3.utils.fromUtf8(str);
-qweb3.utils.isJson(str);
-qweb3.utils.isEurekaCoinAddress(address);
+const eweb3 = new Eweb3('http://bodhi:bodhi@localhost:13889');
+eweb3.utils.paramsCheck(methodName, params, required, validators);
+eweb3.utils.appendHexPrefix(value);
+eweb3.utils.trimHexPrefix(str);
+eweb3.utils.chunkString(str, length);
+eweb3.utils.toUtf8(hex);
+eweb3.utils.fromUtf8(str);
+eweb3.utils.isJson(str);
+eweb3.utils.isEurekaCoinAddress(address);
 ```
 
 ## Running Tests

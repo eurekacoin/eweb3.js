@@ -29,8 +29,8 @@ module.exports = {
    */
   getWalletPassphrase: () => (process.env.WALLET_PASSPHRASE ? String(Buffer.from(process.env.WALLET_PASSPHRASE)) : ''),
 
-  isWalletEncrypted: async (qweb3) => {
-    const res = await qweb3.getWalletInfo();
+  isWalletEncrypted: async (eweb3) => {
+    const res = await eweb3.getWalletInfo();
     return Object.prototype.hasOwnProperty.call(res, 'unlocked_until');
   },
 };

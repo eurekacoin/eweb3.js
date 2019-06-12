@@ -7,10 +7,10 @@ const Encoder = require('./formatters/encoder');
 const Decoder = require('./formatters/decoder');
 const Utils = require('./utils');
 
-class Qweb3 {
+class Eweb3 {
   /**
-   * Qweb3 constructor.
-   * @param {string|Qweb3Provider} provider Either URL string to create HttpProvider or a Qweb3 compatible provider.
+   * Eweb3 constructor.
+   * @param {string|Eweb3Provider} provider Either URL string to create HttpProvider or a Eweb3 compatible provider.
    */
   constructor(provider) {
     this.provider = initProvider(provider);
@@ -453,4 +453,4 @@ class Qweb3 {
   }
 }
 
-module.exports = Qweb3;
+module.exports = Eweb3;

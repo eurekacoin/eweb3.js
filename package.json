@@ -1,12 +1,12 @@
 {
-  "name": "qweb3",
+  "name": "eweb3",
   "namespace": "bodhi",
   "version": "1.2.2",
   "description": "EurekaCoin JavaScript API comunicating to eurekacoin node over RPC",
   "main": "./src/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bodhiproject/qweb3.js.git"
+    "url": "https://github.com/bodhiproject/eweb3.js.git"
   },
   "license": "LGPL-3.0",
   "directories": {
@@ -49,7 +49,7 @@
   },
   "homepage": "https://www.bodhi.network/",
   "bugs": {
-    "url": "https://github.com/bodhiproject/qweb3.js/issues"
+    "url": "https://github.com/bodhiproject/eweb3.js/issues"
   },
   "keywords": [
     "eurekacoin",
