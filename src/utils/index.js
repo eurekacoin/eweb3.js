@@ -146,12 +146,12 @@ class Utils {
   }
 
   /**
-   * Returns true if given string is valid qtum address
-   * @method isQtumAddress
+   * Returns true if given string is valid eurekacoin address
+   * @method isEurekaCoinAddress
    * @param {String}
    * @return {Boolean}
    */
-  static isQtumAddress(address) {
+  static isEurekaCoinAddress(address) {
     if (_.isUndefined(address)) {
       return false;
     }

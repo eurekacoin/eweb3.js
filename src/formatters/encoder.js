@@ -40,8 +40,8 @@ class Encoder {
   }
 
   /**
-   * Converts a Qtum or hex address to a padded hex string.
-   * @param {string} address The Qtum/hex address to convert.
+   * Converts a EurekaCoin or hex address to a padded hex string.
+   * @param {string} address The EurekaCoin/hex address to convert.
    * @return {string} The 32 bytes padded-left hex string.
    */
   static addressToHex(address) {

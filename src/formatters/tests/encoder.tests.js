@@ -149,7 +149,7 @@ describe('Encoder', () => {
   });
 
   describe('addressToHex()', () => {
-    it('should convert a qtum address', () => {
+    it('should convert a eurekacoin address', () => {
       assert.equal(
         Encoder.addressToHex('qKjn4fStBaAtwGiwueJf9qFxgpbAvf1xAy'),
         '00000000000000000000000017e7888aa7412a735f336d2f6d784caefabb6fa3',

@@ -165,7 +165,7 @@ class Qweb3 {
   /**
    * Mine blocks immediately to a specified address (before the RPC call returns).
    * @param {number} blocks How many blocks are generated immediately.
-   * @param {string} address The address to send the newly generated qtum to.
+   * @param {string} address The address to send the newly generated eurekacoin to.
    * @param {number} maxTries How many iterations to try (default = 1000000).
    * @return {array} Hashes of blocks generated.
    */
@@ -191,8 +191,8 @@ class Qweb3 {
 
   /** ******** RAW TRANSACTIONS ********* */
   /**
-   * Get the hex address of a Qtum address.
-   * @param {string} address Qtum address
+   * Get the hex address of a EurekaCoin address.
+   * @param {string} address EurekaCoin address
    * @return {Promise} Hex string of the converted address or Error
    */
   getHexAddress(address) {
@@ -200,9 +200,9 @@ class Qweb3 {
   }
 
   /**
-   * Converts a hex address to qtum address.
-   * @param {string} hexAddress Qtum address in hex format.
-   * @return {Promise} Qtum address or Error.
+   * Converts a hex address to eurekacoin address.
+   * @param {string} hexAddress EurekaCoin address in hex format.
+   * @return {Promise} EurekaCoin address or Error.
    */
   fromHexAddress(hexAddress) {
     return this.provider.rawCall('fromhexaddress', [hexAddress]);
@@ -210,8 +210,8 @@ class Qweb3 {
 
   /** ******** UTIL ********* */
   /**
-   * Validates if a valid Qtum address.
-   * @param {string} address Qtum address to validate.
+   * Validates if a valid EurekaCoin address.
+   * @param {string} address EurekaCoin address to validate.
    * @return {Promise} Object with validation info or Error.
    */
   validateAddress(address) {
@@ -230,7 +230,7 @@ class Qweb3 {
 
   /**
    * Reveals the private key corresponding to the address.
-   * @param {string} address The qtum address for the private key.
+   * @param {string} address The eurekacoin address for the private key.
    * @return {Promise} Private key or Error.
    */
   dumpPrivateKey(address) {
@@ -238,7 +238,7 @@ class Qweb3 {
   }
 
   /**
-   * Encrypts the wallet for the first time. This will shut down the qtum server.
+   * Encrypts the wallet for the first time. This will shut down the eurekacoin server.
    * @param {string} passphrase The passphrase to encrypt the wallet with. Must be at least 1 character.
    * @return {Promise} Success or Error.
    */
@@ -247,8 +247,8 @@ class Qweb3 {
   }
 
   /**
-   * Gets the account name associated with the Qtum address.
-   * @param {string} address The qtum address for account lookup.
+   * Gets the account name associated with the EurekaCoin address.
+   * @param {string} address The eurekacoin address for account lookup.
    * @return {Promise} Account name or Error.
    */
   getAccount(address) {
@@ -256,27 +256,27 @@ class Qweb3 {
   }
 
   /**
-   * Gets the Qtum address based on the account name.
+   * Gets the EurekaCoin address based on the account name.
    * @param {string} acctName The account name for the address ("" for default).
-   * @return {Promise} Qtum address or Error.
+   * @return {Promise} EurekaCoin address or Error.
    */
   getAccountAddress(acctName = '') {
     return this.provider.rawCall('getaccountaddress', [acctName]);
   }
 
   /**
-   * Gets the Qtum address with the account name.
+   * Gets the EurekaCoin address with the account name.
    * @param {string} acctName The account name ("" for default).
-   * @return {Promise} Qtum address array or Error.
+   * @return {Promise} EurekaCoin address array or Error.
    */
   getAddressesByAccount(acctName = '') {
     return this.provider.rawCall('getaddressesbyaccount', [acctName]);
   }
 
   /**
-   * Gets a new Qtum address for receiving payments.
+   * Gets a new EurekaCoin address for receiving payments.
    * @param {string} acctName The account name for the address to be linked to ("" for default).
-   * @return {Promise} Qtum address or Error.
+   * @return {Promise} EurekaCoin address or Error.
    */
   getNewAddress(acctName = '') {
     return this.provider.rawCall('getnewaddress', [acctName]);
@@ -352,7 +352,7 @@ class Qweb3 {
   /**
    * Lists groups of addresses which have had their common ownership made public by common use as inputs
    *  or as the resulting change in past transactions.
-   * @return {Promise} Array of addresses with QTUM balances or Error.
+   * @return {Promise} Array of addresses with EUREKACOIN balances or Error.
    */
   listAddressGroupings() {
     return this.provider.rawCall('listaddressgroupings');
@@ -376,15 +376,15 @@ class Qweb3 {
 
   /**
    * Lists unspent transaction outputs.
-   * @param {string} address Address to send QTUM to.
-   * @param {number} amount Amount of QTUM to send.
+   * @param {string} address Address to send EUREKACOIN to.
+   * @param {number} amount Amount of EUREKACOIN to send.
    * @param {string} comment Comment used to store what the transaction is for.
    * @param {string} commentTo Comment to store name/organization to which you're sending the transaction.
    * @param {boolean} subtractFeeFromAmount The fee will be deducted from the amount being sent.
    * @param {boolean} replaceable Allow this transaction to be replaced by a transaction with higher fees via BIP 125.
    * @param {number} confTarget Confirmation target (in blocks).
    * @param {string} estimateMode The fee estimate mode, must be one of: "UNSET", "ECONOMICAL", "CONSERVATIVE"
-   * @param {string} senderAddress The QTUM address that will be used to send money from.
+   * @param {string} senderAddress The EUREKACOIN address that will be used to send money from.
    * @param {boolean} changeToSender Return the change to the sender.
    * @return {Promise} Transaction ID or Error
    */
@@ -416,7 +416,7 @@ class Qweb3 {
 
   /**
    * Set the transaction fee per kB. Overwrites the paytxfee parameter.
-   * @param {bumber} amount The transaction fee in QTUM/kB.
+   * @param {bumber} amount The transaction fee in EUREKACOIN/kB.
    * @return {Promise} True/false for success or Error.
    */
   setTxFee(amount) {

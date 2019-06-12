@@ -8,19 +8,19 @@ const Qweb3 = require('../qweb3');
 const Decoder = require('../formatters/decoder');
 const ContractMetadata = require('../../test/data/contract_metadata');
 const qAssert = require('../../test/utils/qassert');
-const { getQtumRPCAddress, getDefaultQtumAddress, getWalletPassphrase, isWalletEncrypted } = require('../../test/utils');
+const { getEurekaCoinRPCAddress, getDefaultEurekaCoinAddress, getWalletPassphrase, isWalletEncrypted } = require('../../test/utils');
 
 const { assert } = chai;
 
-console.log(`Your Qtum RPC address is ${getQtumRPCAddress()}`);
-console.log(`Your Default Qtum address is ${getDefaultQtumAddress()}`);
+console.log(`Your EurekaCoin RPC address is ${getEurekaCoinRPCAddress()}`);
+console.log(`Your Default EurekaCoin address is ${getDefaultEurekaCoinAddress()}`);
 
 describe('Qweb3', () => {
-  const QTUM_ADDRESS = getDefaultQtumAddress();
+  const EUREKACOIN_ADDRESS = getDefaultEurekaCoinAddress();
   let qweb3;
 
   beforeEach(() => {
-    qweb3 = new Qweb3(getQtumRPCAddress());
+    qweb3 = new Qweb3(getEurekaCoinRPCAddress());
   });
 
   /** ******** MISC ********* */
@@ -282,8 +282,8 @@ describe('Qweb3', () => {
   /** ******** RAW TRANSACTIONS ********* */
   describe('getHexAddress()', () => {
     it('returns the hex address', async () => {
-      const hexDecodedAddress = bs58.decode(QTUM_ADDRESS).toString('hex');
-      const hexadecimalAddress = await qweb3.getHexAddress(QTUM_ADDRESS);
+      const hexDecodedAddress = bs58.decode(EUREKACOIN_ADDRESS).toString('hex');
+      const hexadecimalAddress = await qweb3.getHexAddress(EUREKACOIN_ADDRESS);
       assert.isString(hexadecimalAddress);
       assert.lengthOf(hexadecimalAddress, 40);
       assert.include(hexDecodedAddress, hexadecimalAddress);
@@ -291,17 +291,17 @@ describe('Qweb3', () => {
   });
 
   describe('fromHexAddress()', () => {
-    it('returns the qtum address', async () => {
-      const qtumAddress = await qweb3.fromHexAddress('17e7888aa7412a735f336d2f6d784caefabb6fa3');
-      assert.isString(qtumAddress);
-      assert.lengthOf(qtumAddress, 34);
+    it('returns the eurekacoin address', async () => {
+      const eurekacoinAddress = await qweb3.fromHexAddress('17e7888aa7412a735f336d2f6d784caefabb6fa3');
+      assert.isString(eurekacoinAddress);
+      assert.lengthOf(eurekacoinAddress, 34);
     });
   });
 
   /** ******** UTIL ********* */
   describe('validateAddress()', () => {
     it('returns an object validating the address', async () => {
-      let res = await qweb3.validateAddress(QTUM_ADDRESS);
+      let res = await qweb3.validateAddress(EUREKACOIN_ADDRESS);
       assert.isDefined(res);
       assert.isDefined(res.isvalid);
 
@@ -449,7 +449,7 @@ describe('Qweb3', () => {
 
         if (!_.isEmpty(innerArr)) {
           const item = innerArr[0];
-          qAssert.isQtumAddress(item[0]);
+          qAssert.isEurekaCoinAddress(item[0]);
           assert.isTrue(_.isNumber(item[1]));
         }
       }
@@ -504,7 +504,7 @@ describe('Qweb3', () => {
   // eslint-disable-next-line no-unused-expressions
   !_.includes(process.argv, '--cleanenv') ? describe.skip : describe('cleanEnv tests', () => {
     describe('getNewAddress()', () => {
-      it('returns a new qtum address', async () => {
+      it('returns a new eurekacoin address', async () => {
         const res = await qweb3.getNewAddress('');
         assert.isDefined(res);
         assert.isString(res);

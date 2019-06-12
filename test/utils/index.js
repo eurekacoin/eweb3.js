@@ -2,10 +2,10 @@ require('dotenv').config();
 
 module.exports = {
   /**
-   * Returns the default Qtum address.
-   * @return {String} Default Qtum address.
+   * Returns the default EurekaCoin address.
+   * @return {String} Default EurekaCoin address.
    */
-  getDefaultQtumAddress: () => {
+  getDefaultEurekaCoinAddress: () => {
     if (!process.env.SENDER_ADDRESS) {
       throw Error('Must have SENDER_ADDRESS in .env');
     }
@@ -13,14 +13,14 @@ module.exports = {
   },
 
   /**
-   * Returns the Qtum network RPC url.
-   * @return {String} The Qtum network RPC url.
+   * Returns the EurekaCoin network RPC url.
+   * @return {String} The EurekaCoin network RPC url.
    */
-  getQtumRPCAddress: () => {
-    if (!process.env.QTUM_RPC_ADDRESS) {
-      throw Error('Must have QTUM_RPC_ADDRESS in .env');
+  getEurekaCoinRPCAddress: () => {
+    if (!process.env.EUREKACOIN_RPC_ADDRESS) {
+      throw Error('Must have EUREKACOIN_RPC_ADDRESS in .env');
     }
-    return String(Buffer.from(process.env.QTUM_RPC_ADDRESS));
+    return String(Buffer.from(process.env.EUREKACOIN_RPC_ADDRESS));
   },
 
   /**

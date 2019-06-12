@@ -4,7 +4,7 @@ const chai = require('chai');
 const { assert } = chai;
 
 module.exports = class QAssert {
-  static isQtumAddress(address) {
+  static isEurekaCoinAddress(address) {
     assert.isDefined(address);
     assert.equal(_.size(address), 34);
     assert.isTrue(address.startsWith('q') || address.startsWith('Q'));

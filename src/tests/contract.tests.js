@@ -4,7 +4,7 @@ const Web3Utils = require('web3-utils');
 const BN = require('bn.js');
 const chai = require('chai');
 
-const { getQtumRPCAddress } = require('../../test/utils');
+const { getEurekaCoinRPCAddress } = require('../../test/utils');
 const ContractMetadata = require('../../test/data/contract_metadata');
 const Contract = require('../contract');
 const Decoder = require('../formatters/decoder');
@@ -17,7 +17,7 @@ describe('Contract', () => {
   describe('constructor', () => {
     it('inits all the values', async () => {
       contract = new Contract(
-        getQtumRPCAddress(),
+        getEurekaCoinRPCAddress(),
         ContractMetadata.EventFactory.address,
         ContractMetadata.EventFactory.abi,
       );
@@ -27,7 +27,7 @@ describe('Contract', () => {
     });
 
     it('removes the hex prefix from the address', async () => {
-      contract = new Contract(getQtumRPCAddress(), '0x1234567890', ContractMetadata.EventFactory.abi);
+      contract = new Contract(getEurekaCoinRPCAddress(), '0x1234567890', ContractMetadata.EventFactory.abi);
       assert.equal(contract.address, '1234567890');
     });
   });

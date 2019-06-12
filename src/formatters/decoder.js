@@ -11,7 +11,7 @@ const MainnetNetworkByte = '3A';
 const TestnetNetworkByte = '78';
 
 class Decoder {
-  static toQtumAddress(hexAddress, isMainnet = false) {
+  static toEurekaCoinAddress(hexAddress, isMainnet = false) {
     if (hexAddress === undefined || isEmpty(hexAddress)) {
       throw new Error('hexAddress should not be undefined or empty');
     }
