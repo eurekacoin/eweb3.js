@@ -6,7 +6,7 @@
   "main": "./src/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bodhiproject/eweb3.js.git"
+    "url": "https://github.com/eurekacoin/eweb3.js.git"
   },
   "license": "LGPL-3.0",
   "directories": {
@@ -47,9 +47,9 @@
       "pre-push": "npm run lint:fix"
     }
   },
-  "homepage": "https://www.bodhi.network/",
+  "homepage": "https://www.eurekacoin.io/",
   "bugs": {
-    "url": "https://github.com/bodhiproject/eweb3.js/issues"
+    "url": "https://github.com/eurekacoin/eweb3.js/issues"
   },
   "keywords": [
     "eurekacoin",
