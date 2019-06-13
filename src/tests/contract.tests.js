@@ -67,7 +67,7 @@ describe('Contract', () => {
     it('sends a transaction', async () => {
       const res = {
         txid: '685f23b364242e4954a2a62a42c3632762d19f37e24c34edc495cc0e117a9112',
-        sender: 'qKjn4fStBaAtwGiwueJf9qFxgpbAvf1xAy',
+        sender: 'eTcVUjQ71hfErZxcFKK44SuihCdhjZVttE',
         hash160: '17e7888aa7412a735f336d2f6d784caefabb6fa3',
       };
 

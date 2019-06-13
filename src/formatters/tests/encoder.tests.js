@@ -151,7 +151,7 @@ describe('Encoder', () => {
   describe('addressToHex()', () => {
     it('should convert a eurekacoin address', () => {
       assert.equal(
-        Encoder.addressToHex('qKjn4fStBaAtwGiwueJf9qFxgpbAvf1xAy'),
+        Encoder.addressToHex('eTcVUjQ71hfErZxcFKK44SuihCdhjZVttE'),
         '00000000000000000000000017e7888aa7412a735f336d2f6d784caefabb6fa3',
       );
       assert.equal(
@@ -422,7 +422,7 @@ describe('Encoder', () => {
 
   describe('validateMethodAndArgs()', () => {
     const { abi } = ContractMetadata.EventFactory;
-    const args = ['qKjn4fStBaAtwGiwueJf9qFxgpbAvf1xAy', 'Hello World', ['a', 'b', 'c'], 'c350', 'c738'];
+    const args = ['eTcVUjQ71hfErZxcFKK44SuihCdhjZVttE', 'Hello World', ['a', 'b', 'c'], 'c350', 'c738'];
 
     it('validates the methodName and methodArgs', () => {
       assert.isTrue(Encoder.validateMethodAndArgs(abi, 'createTopic', args));
@@ -441,7 +441,7 @@ describe('Encoder', () => {
     });
 
     it('throws if methodArgs does not match args in ABI', () => {
-      assert.throws(() => Encoder.validateMethodAndArgs(abi, 'createTopic', ['qKjn4fStBaAtwGiwueJf9qFxgpbAvf1xAy', 'Hello World',
+      assert.throws(() => Encoder.validateMethodAndArgs(abi, 'createTopic', ['eTcVUjQ71hfErZxcFKK44SuihCdhjZVttE', 'Hello World',
         ['a', 'b', 'c'], 'c350']), Error);
     });
   });
@@ -450,7 +450,7 @@ describe('Encoder', () => {
     const { abi } = ContractMetadata.EventFactory;
 
     it('constructs the datahex', () => {
-      const args = ['qKjn4fStBaAtwGiwueJf9qFxgpbAvf1xAy', 'Hello World', ['a', 'b', 'c'], '0xc350', '0xc738'];
+      const args = ['eTcVUjQ71hfErZxcFKK44SuihCdhjZVttE', 'Hello World', ['a', 'b', 'c'], '0xc350', '0xc738'];
       const dataHex = Encoder.constructData(abi, 'createTopic', args);
 
       const funcHash = 'd0613dce';
@@ -509,7 +509,7 @@ describe('Encoder', () => {
         ['49837717385', 1234567890, '0x87A23'],
         true,
         ['49837717385', 1234567890, '0x87A23'],
-        ['qKjn4fStBaAtwGiwueJf9qFxgpbAvf1xAy', 'qKoxAUEQ1Nj6anwes6ZjRGQ7aqdiyUeat8'],
+        ['eTcVUjQ71hfErZxcFKK44SuihCdhjZVttE', 'qKoxAUEQ1Nj6anwes6ZjRGQ7aqdiyUeat8'],
       ];
       const dataHex = Encoder.constructData([methodObj], 'test', args);
 
@@ -553,7 +553,7 @@ describe('Encoder', () => {
         stateMutability: 'view',
         type: 'function',
       };
-      const args = ['qKjn4fStBaAtwGiwueJf9qFxgpbAvf1xAy'];
+      const args = ['eTcVUjQ71hfErZxcFKK44SuihCdhjZVttE'];
       const dataHex = Encoder.constructData([methodObj], 'testMethod', args);
 
       const funcHash = Encoder.objToHash(methodObj, true);
@@ -576,7 +576,7 @@ describe('Encoder', () => {
         stateMutability: 'view',
         type: 'function',
       };
-      const args = [['qKjn4fStBaAtwGiwueJf9qFxgpbAvf1xAy', 'qKoxAUEQ1Nj6anwes6ZjRGQ7aqdiyUeat8']];
+      const args = [['eTcVUjQ71hfErZxcFKK44SuihCdhjZVttE', 'qKoxAUEQ1Nj6anwes6ZjRGQ7aqdiyUeat8']];
       const dataHex = Encoder.constructData([methodObj], 'testMethod', args);
 
       const funcHash = Encoder.objToHash(methodObj, true);
@@ -601,7 +601,7 @@ describe('Encoder', () => {
         type: 'function',
       };
 
-      const args = [['qKjn4fStBaAtwGiwueJf9qFxgpbAvf1xAy', 'qKoxAUEQ1Nj6anwes6ZjRGQ7aqdiyUeat8']];
+      const args = [['eTcVUjQ71hfErZxcFKK44SuihCdhjZVttE', 'qKoxAUEQ1Nj6anwes6ZjRGQ7aqdiyUeat8']];
       const dataHex = Encoder.constructData([methodObj], 'test', args);
 
       const funcHash = Encoder.objToHash(methodObj, true);
@@ -974,12 +974,12 @@ describe('Encoder', () => {
     });
 
     it('throws if abi is undefined', () => {
-      assert.throws(() => Encoder.constructData(undefined, 'test', ['qKjn4fStBaAtwGiwueJf9qFxgpbAvf1xAy', 'Hello World',
+      assert.throws(() => Encoder.constructData(undefined, 'test', ['eTcVUjQ71hfErZxcFKK44SuihCdhjZVttE', 'Hello World',
         ['a', 'b', 'c'], 'c350', 'c738']), Error);
     });
 
     it('throws if methodName is undefined', () => {
-      assert.throws(() => Encoder.constructData(abi, undefined, ['qKjn4fStBaAtwGiwueJf9qFxgpbAvf1xAy', 'Hello World',
+      assert.throws(() => Encoder.constructData(abi, undefined, ['eTcVUjQ71hfErZxcFKK44SuihCdhjZVttE', 'Hello World',
         ['a', 'b', 'c'], 'c350', 'c738']), Error);
     });
   });

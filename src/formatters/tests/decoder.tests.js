@@ -11,11 +11,11 @@ describe('Decoder', () => {
     it('returns the converted eurekacoin address', () => {
       assert.equal(
         Decoder.toEurekaCoinAddress('17e7888aa7412a735f336d2f6d784caefabb6fa3', false),
-        'qKjn4fStBaAtwGiwueJf9qFxgpbAvf1xAy',
+        'eTcVUjQ71hfErZxcFKK44SuihCdhjZVttE',
       );
       assert.equal(
         Decoder.toEurekaCoinAddress('2a2ad24849bc061f0f7abee243ebdb584b0d11f1', true),
-        'QQSwne4oB1jmRXceHrs9tPGQmn7qjvSqyR',
+        'ELzsAvcbRW9ryh8UgNYBmFTk3AgFx8ho9Q',
       );
     });
 
@@ -25,7 +25,7 @@ describe('Decoder', () => {
     });
 
     it('throws if hexAddress is not hex', () => {
-      expect(() => Decoder.toEurekaCoinAddress('qKjn4fStBaAtwGiwueJf9qFxgpbAvf1xAy')).to.throw();
+      expect(() => Decoder.toEurekaCoinAddress('eTcVUjQ71hfErZxcFKK44SuihCdhjZVttE')).to.throw();
     });
   });
 

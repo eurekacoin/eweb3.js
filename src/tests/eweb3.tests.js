@@ -377,7 +377,7 @@ describe('Eweb3', () => {
           },
           {
             account: '',
-            address: 'qKjn4fStBaAtwGiwueJf9qFxgpbAvf1xAy',
+            address: 'eTcVUjQ71hfErZxcFKK44SuihCdhjZVttE',
             category: 'send',
             amount: -0.23241276,
             label: 'main',
@@ -387,7 +387,7 @@ describe('Eweb3', () => {
           },
           {
             account: 'main',
-            address: 'qKjn4fStBaAtwGiwueJf9qFxgpbAvf1xAy',
+            address: 'eTcVUjQ71hfErZxcFKK44SuihCdhjZVttE',
             category: 'receive',
             amount: 0.23241276,
             label: 'main',

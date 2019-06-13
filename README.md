@@ -104,7 +104,7 @@ async function isConnected() {
 Converts a EurekaCoin address to hex format.
 ```
 async function getHexAddress() {
-  return await eweb3.getHexAddress('qKjn4fStBaAtwGiwueJf9qFxgpbAvf1xAy');
+  return await eweb3.getHexAddress('eTcVUjQ71hfErZxcFKK44SuihCdhjZVttE');
 }
 ```
 
